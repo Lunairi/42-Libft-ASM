@@ -113,49 +113,49 @@ int main(void) {
 	printf("ft_strlen(\"123456789\") => %zu\n", ft_strlen("123456789"));
 	printf("ft_strlen(\"ft_strlen(\\\"ft_strlen(\\\"\\\")\\\")\") => %zu\n", ft_strlen("ft_strlen(\"ft_strlen(\"\")\")"));
 
-	// printf("\n[MEMSET] ---------------------------------------------------------------------\n");
-	// char memset_test0[256];
-	// char memset_test1[256];
+	printf("\n[MEMSET] ---------------------------------------------------------------------\n");
+	char memset_test0[256];
+	char memset_test1[256];
 
-	// memset(memset_test0, 0, 255);
-	// memset(memset_test1, 0xCC, 255);
-	// memset_test0[255] = 0xEE;
-	// memset_test1[255] = 0xEE;
+	memset(memset_test0, 0, 255);
+	memset(memset_test1, 0xCC, 255);
+	memset_test0[255] = 0xEE;
+	memset_test1[255] = 0xEE;
 
-	// void *memset_res = ft_memset(memset_test0, 0xCC, 255);
-	// if (memcmp(memset_test0, memset_test1, 256))
-	// 	printf("ft_memset() test FAILED!\n");
-	// else
-	// 	printf("ft_memset() test SUCCEEDED!\n");
-	// if (memset_res != memset_test0)
-	// 	printf("ft_memset() returned an invalid result!\n");
+	void *memset_res = ft_memset(memset_test0, 0xCC, 255);
+	if (memcmp(memset_test0, memset_test1, 256))
+		printf("ft_memset() test FAILED!\n");
+	else
+		printf("ft_memset() test SUCCEEDED!\n");
+	if (memset_res != memset_test0)
+		printf("ft_memset() returned an invalid result!\n");
 
-	// printf("\n[MEMCPY] ---------------------------------------------------------------------\n");
-	// char memcpy_test[256] = "I KNOW A SONG THAT GETS ON EVERYBODY'S NERVES";
-	// char memcpy_buffer[256];
+	printf("\n[MEMCPY] ---------------------------------------------------------------------\n");
+	char memcpy_test[256] = "I KNOW A SONG THAT GETS ON EVERYBODY'S NERVES";
+	char memcpy_buffer[256];
 
-	// memcpy_test[255] = 0xFD;
-	// memset(memcpy_buffer, 0xFD, 256);
-	// void *memcpy_res = ft_memcpy(memcpy_buffer, memcpy_test, 255);
-	// if (memcmp(memcpy_buffer, memcpy_test, 256))
-	// 	printf("ft_memcpy() test FAILED!\n");
-	// else
-	// 	printf("ft_memcpy() test SUCCEEDED!\n");
-	// if (memcpy_res != memcpy_buffer)
-	// 	printf("ft_memcpy() returned an invalid result!\n");
+	memcpy_test[255] = 0xFD;
+	memset(memcpy_buffer, 0xFD, 256);
+	void *memcpy_res = ft_memcpy(memcpy_buffer, memcpy_test, 255);
+	if (memcmp(memcpy_buffer, memcpy_test, 256))
+		printf("ft_memcpy() test FAILED!\n");
+	else
+		printf("ft_memcpy() test SUCCEEDED!\n");
+	if (memcpy_res != memcpy_buffer)
+		printf("ft_memcpy() returned an invalid result!\n");
 
-	// printf("\n[STRDUP] ---------------------------------------------------------------------\n");
-	// char	*strdup_test0 = "TEST0";
-	// char	*strdup_test1 = "";
-	// char	*strdup_test2 = "TEST1 WAS AN EMPTY STRING ^^^^^, THIS IS TEST2";
+	printf("\n[STRDUP] ---------------------------------------------------------------------\n");
+	char	*strdup_test0 = "TEST0";
+	char	*strdup_test1 = "";
+	char	*strdup_test2 = "TEST1 WAS AN EMPTY STRING ^^^^^, THIS IS TEST2";
 
-	// char *strdup_buffer0 = ft_strdup(strdup_test0);
-	// char *strdup_buffer1 = ft_strdup(strdup_test1);
-	// char *strdup_buffer2 = ft_strdup(strdup_test2);
+	char *strdup_buffer0 = ft_strdup(strdup_test0);
+	char *strdup_buffer1 = ft_strdup(strdup_test1);
+	char *strdup_buffer2 = ft_strdup(strdup_test2);
 
-	// printf("[%p] %s => [%p] => %s\n", strdup_test0, strdup_test0, strdup_buffer0, strdup_buffer0);
-	// printf("[%p] %s => [%p] => %s\n", strdup_test1, strdup_test1, strdup_buffer1, strdup_buffer1);
-	// printf("[%p] %s => [%p] => %s\n", strdup_test2, strdup_test2, strdup_buffer2, strdup_buffer2);
+	printf("[%p] %s => [%p] => %s\n", strdup_test0, strdup_test0, strdup_buffer0, strdup_buffer0);
+	printf("[%p] %s => [%p] => %s\n", strdup_test1, strdup_test1, strdup_buffer1, strdup_buffer1);
+	printf("[%p] %s => [%p] => %s\n", strdup_test2, strdup_test2, strdup_buffer2, strdup_buffer2);
 
 	// printf("\n[ISSPACE] --------------------------------------------------------------------\n");
 	// for (i = -128; i < 256; i++) {
