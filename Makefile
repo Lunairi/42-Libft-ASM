@@ -12,20 +12,20 @@
 
 NAME =	libft.a
 
-FILES = strlen puts bzero strcat toupper tolower \
-		isalpha isdigit isalnum isasciiisprint  
+FILES = puts bzero strcat toupper tolower \
+		isalpha isdigit isalnum isasciiisprint  strlen
 
-SRC	= $(addprefix ./source, $(patsubst %, %.s, $(FILES)))
-OBJ = $(addprefix ./include, $(patsubst %, %.o, $(FILES)))
+SRC	= $(addprefix ./sources/, $(patsubst %, %.s, $(FILES)))
+OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C libft/
-	ar rc $(NAME) *.o
+	# make -C libft/
+	ar rc $(NAME) ./objects/*.o
 	ranlib $(NAME)
 
-./objects/%.o: ./source/%.s
+./objects/%.o: ./sources/%.s
 	mkdir -p objects
 	nasm -f macho64 $< -o $@
 
