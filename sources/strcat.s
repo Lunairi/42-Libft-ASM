@@ -14,7 +14,7 @@ checkstring:
 	jmp returnstring				; if null, goes to return
 
 concatstring:
-	mov byte [rdi], byte [rsi]		; moving byte from 2nd to first
+	mov byte [rdi], byte [rsi]		; moving byte from 2nd to first by dereferencing pointer
 	add rdi, 1						; incrementing pointer
 	add rsi, 1						; incrementing pointer
 	jmp checkstring					; check string again
