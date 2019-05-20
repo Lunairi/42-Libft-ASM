@@ -2,6 +2,7 @@ section .text
 global _ft_strlen
 
 _ft_strlen: 
+	push rdi		; preserve value
 	move rax, 0 	; value scasb will find, null is 0
 	push rcx 		; pop just incase
 	mov rcx, -1 	; set to -1, doesnt matter if signed/unsigned
@@ -9,6 +10,7 @@ _ft_strlen:
 	mov rax, -2 	; set rax to -2 as smallest string would be -2
 	sub rax, rcx 	; take diff and store into return
 	pop rcx 		; pop value on stack back into rcx
+	pop rdi			; pop back into rdi
 	ret
 
 ; rdi 1st 
