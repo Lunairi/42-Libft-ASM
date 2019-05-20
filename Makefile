@@ -23,6 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rc $(NAME) ./objects/*.o
 	ranlib $(NAME)
+	printf '\033[31m[ ✔ ] %s\n\033[0m' "Created libfts.a"
 
 ./objects/%.o: ./sources/%.s
 	mkdir -p objects
@@ -35,9 +36,11 @@ test:
 clean:
 	rm -f ./objects/*.o
 	rm -rf ./objects
-	rm ./a.out
+	rm -f ./a.out
+	printf '\033[31m[ ✔ ] %s\n\033[0m' "Cleaned libftasm"
 
 fclean: clean
 	rm -f $(NAME)
+	printf '\033[31m[ ✔ ] %s\n\033[0m' "Fcleaned libftasm"
 
 re: fclean all
