@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libft.a
+NAME =	libfts.a
 
 FILES = puts bzero strcat toupper tolower \
-		isalpha isdigit isalnum isasciiisprint  strlen
+		isalpha isdigit isalnum isascii isprint strlen
 
 SRC	= $(addprefix ./sources/, $(patsubst %, %.s, $(FILES)))
 OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
@@ -21,7 +21,6 @@ OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	# make -C libft/
 	ar rc $(NAME) ./objects/*.o
 	ranlib $(NAME)
 
@@ -29,8 +28,14 @@ $(NAME): $(OBJ)
 	mkdir -p objects
 	nasm -f macho64 $< -o $@
 
+test:
+	gcc test.c $(NAME)
+	./a.out
+
 clean:
-	rm -f *.o
+	rm -f ./objects/*.o
+	rm -rf ./objects
+	rm ./a.out
 
 fclean: clean
 	rm -f $(NAME)

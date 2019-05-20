@@ -3,7 +3,7 @@ global _ft_strlen
 
 _ft_strlen: 
 	push rdi		; preserve value
-	move rax, 0 	; value scasb will find, null is 0
+	mov rax, 0 	; value scasb will find, null is 0
 	push rcx 		; pop just incase
 	mov rcx, -1 	; set to -1, doesnt matter if signed/unsigned
 	repne scasb 	; to scan string until it finds AL (rax)

@@ -10,14 +10,14 @@ _ft_isalnum:
 	call _ft_isalpha
 	cmp rax, 1
 	je isalnum
-	isnotalnum
+	jmp isnotalnum
 
 isalnum:
-	move rax, 1
+	mov rax, 1
 	ret
 
 isnotalnum:
-	move rax, 0
+	mov rax, 0
 	ret
 
 

@@ -2,18 +2,18 @@ section .text
 global _ft_toupper
 
 _ft_toupper:
-	mov rax, edi
+	mov eax, edi
 	cmp edi, 97
 	jge checkvalue
 	ret
 
 checkvalue:
 	cmp edi, 122
-	jbe toupper
+	jle toupper
 	ret
 
 toupper:
-	add rax, 32
+	sub eax, 32
 	ret
 
 

@@ -2,20 +2,20 @@ section .text
 global _ft_isalpha
 
 _ft_isalpha:
-	cmp edi, 65
-	jge checkupper
 	cmp edi, 97
 	jge checklower
+	cmp edi, 65
+	jge checkupper
 	jmp isnotalpha
 
 checkupper:
 	cmp edi, 90
-	jbe isalpha
+	jle isalpha
 	jmp isnotalpha
 
 checklower:
 	cmp edi, 122
-	jbe isalpha
+	jle isalpha
 	jmp isnotalpha
 
 isalpha:

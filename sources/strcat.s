@@ -8,13 +8,14 @@ _ft_strcat:
 	add rdi, rax					; rdi is first string, add rax to get to null
 
 checkstring:
-	mov cl, byte [rsi]				; adding a byte to r15
+	mov cl, byte [rsi]				; adding a byte to rcx
 	cmp cl, 0						; check to see if 2nd param is null or not
 	jne concatstring				; go to concat process if not null
 	jmp returnstring				; if null, goes to return
 
 concatstring:
-	mov byte [rdi], byte [rsi]		; moving byte from 2nd to first by dereferencing pointer
+	mov cl, byte [rsi]				; using rcx as intermediately
+	mov byte [rdi], cl				; moving byte from 2nd to first by dereferencing pointer
 	add rdi, 1						; incrementing pointer
 	add rsi, 1						; incrementing pointer
 	jmp checkstring					; check string again

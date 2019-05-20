@@ -2,18 +2,18 @@ section .text
 global _ft_tolower
 
 _ft_tolower:
-	mov rax, edi
+	mov eax, edi
 	cmp edi, 65
 	jge checkvalue
 	ret
 
 checkvalue:
 	cmp edi, 90
-	jbe tolower
+	jle tolower
 	ret
 
 tolower:
-	sub rax, 32
+	add eax, 32
 	ret
 
 

@@ -8,7 +8,7 @@ _ft_isprint:
 
 checkprint:
 	cmp edi, 127
-	jbe isprint
+	jl isprint
 	jmp isnotprint
 
 isprint:
