@@ -3,36 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mlu <marvin@student.42.fr>                 +#+  +:+       +#+         #
+#    By: mlu <mizukori250@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/04/11 13:48:43 by mlu               #+#    #+#              #
-#    Updated: 2017/06/13 12:45:09 by mlu              ###   ########.fr        #
+#                                                      #+#    #+#              #
+#                                                     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
-SRC = 	strlen.s \
-		puts.s \
-		bzero.s \
-		strcat.s \
-		isalpha.s \
-		isdigit.s \
-		isalnum.s \
-		isascii.s \
-		isprint.s \
-		toupper.s \
-		tolower.s
+FILES = strlen puts bzero strcat toupper tolower \
+		isalpha isdigit isalnum isasciiisprint  
 
-OBJ = $(SRC:.s=.o)
-HEADER = include/
+SRC	= $(addprefix ./source, $(patsubst %, %.s, $(FILES)))
+OBJ = $(addprefix ./include, $(patsubst %, %.o, $(FILES)))
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c -I$(HEADER) $(SRC)
+$(NAME): $(OBJ)
+	make -C libft/
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
+
+./objects/%.o: ./source/%.s
+	mkdir -p objects
+	nasm -f macho64 $< -o $@
 
 clean:
 	rm -f *.o
