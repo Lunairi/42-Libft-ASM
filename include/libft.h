@@ -30,4 +30,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 char				*ft_strdup(const char *s1);
 void				ft_cat(int fd);
 
+int					ft_atoi(const char *str);
+int					ft_isspace(int c);
+
 #endif

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "include/libft.h"
 
 int main(void) {
@@ -157,15 +158,58 @@ int main(void) {
 	printf("[%p] %s => [%p] => %s\n", strdup_test1, strdup_test1, strdup_buffer1, strdup_buffer1);
 	printf("[%p] %s => [%p] => %s\n", strdup_test2, strdup_test2, strdup_buffer2, strdup_buffer2);
 
-	// printf("\n[ISSPACE] --------------------------------------------------------------------\n");
-	// for (i = -128; i < 256; i++) {
-	// 	if (ft_isspace(i) != isspace(i)) {
-	// 		printf("[%d] ft_isspace() tests FAILED!\n", i);
-	// 		break;
-	// 	}
-	// }
-	// if (i == 256)
-	// 	printf("ft_isspace() tests SUCCEEDED!\n");
+	printf("\n[ISSPACE] --------------------------------------------------------------------\n");
+    for (i = -128; i < 256; i++) {
+        if (ft_isspace(i) != isspace(i)) {
+            printf("[%d] ft_isspace() tests FAILED!\n", i);
+            break;
+        }
+    }
+    if (i == 256)
+        printf("ft_isspace() tests SUCCEEDED!\n");
+
+	printf("\n[ATOI] --------------------------------------------------------------------\n");
+	char *atoi_test0 = "\t\r-1234515";
+	char *atoi_test1 = "+12412241";
+	char *atoi_test2 = "-253523";
+	char *atoi_test3 = "+-2352";
+	char *atoi_test4 = " +\t4522345";
+
+	printf("[%i] output\n", ft_atoi(atoi_test0));
+	printf("[%i] output\n", ft_atoi(atoi_test1));
+	printf("[%i] output\n", ft_atoi(atoi_test2));
+	printf("[%i] output\n", ft_atoi(atoi_test3));
+	printf("[%i] output\n", ft_atoi(atoi_test4));
+	if (ft_atoi(atoi_test0) == atoi(atoi_test0)) {
+		printf("[%s] test1 PASSED\n", atoi_test0);
+	}
+	else {
+		printf("[%s] test1 FAILED, expected output: [%i]\n", atoi_test0, atoi(atoi_test0));
+	}
+	if (ft_atoi(atoi_test1) == atoi(atoi_test1)) {
+		printf("[%s] test2 PASSED\n", atoi_test1);
+	}
+	else {
+		printf("[%s] test2 FAILED, expected output: [%i]\n", atoi_test1, atoi(atoi_test1));
+	}
+	if (ft_atoi(atoi_test2) == atoi(atoi_test2)) {
+		printf("[%s] test3 PASSED\n", atoi_test2);
+	}
+	else {
+		printf("[%s] test2 FAILED, expected output: [%i]\n", atoi_test2, atoi(atoi_test2));
+	}
+	if (ft_atoi(atoi_test3) == atoi(atoi_test3)) {
+		printf("[%s] test4 PASSED\n", atoi_test3);
+	}
+	else {
+		printf("[%s] test4 FAILED, expected output: [%i]\n", atoi_test3, atoi(atoi_test3));
+	}
+	if (ft_atoi(atoi_test4) == atoi(atoi_test4)) {
+		printf("[%s] test5 PASSED\n", atoi_test4);
+	}
+	else {
+		printf("[%s] test5 FAILED, expected output: [%i]\n", atoi_test4, atoi(atoi_test4));
+	}
 
 	// printf("\n[MEMCMP] ---------------------------------------------------------------------\n");
 	// if (ft_memcmp(bzero_test0, bzero_test1, 256))
