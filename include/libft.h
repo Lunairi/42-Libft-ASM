@@ -32,5 +32,6 @@ void				ft_cat(int fd);
 
 int					ft_atoi(const char *str);
 int					ft_isspace(int c);
+char				*ft_itoa(int n);
 
 #endif

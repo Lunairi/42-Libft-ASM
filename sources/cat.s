@@ -1,6 +1,6 @@
 section .bss
 space: 
-	.size resb 255
+	.size resb 4096
 
 section .text
 global _ft_cat
@@ -9,7 +9,7 @@ _ft_cat:
 	push rsi						; preserving rsi
 
 readinput:
-	mov rdx, 255					; test size
+	mov rdx, 4096					; test size
 	mov rax, 0x2000003 				; value for read
 	lea rsi, [rel space.size]		; area to store msg
 	syscall							; reading string

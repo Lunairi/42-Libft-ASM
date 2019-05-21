@@ -211,6 +211,48 @@ int main(void) {
 		printf("[%s] test5 FAILED, expected output: [%i]\n", atoi_test4, atoi(atoi_test4));
 	}
 
+	printf("\n[ITOA] --------------------------------------------------------------------\n");
+	int itoa_test = 12345;
+	int itoa_test2 = 2147483647;
+	int itoa_test3 = -2147483648;
+	int itoa_test4 = 2147483648;
+	int itoa_test5 = -2147483649;
+
+	printf("[%s] output\n", ft_itoa(itoa_test));
+	printf("[%s] output\n", ft_itoa(itoa_test2));
+	printf("[%s] output\n", ft_itoa(itoa_test3));
+	printf("[%s] output\n", ft_itoa(itoa_test4));
+	printf("[%s] output\n", ft_itoa(itoa_test5));
+	if (!strcmp(ft_itoa(itoa_test), "12345")) {
+		printf("[%i] test1 PASSED\n", itoa_test);
+	}
+	else {
+		printf("[%i] test1 FAILED, expected output: [%s]\n", itoa_test, "12345");
+	}
+	if (!strcmp(ft_itoa(itoa_test2), "2147483647")) {
+		printf("[%i] test2 PASSED\n", itoa_test2);
+	}
+	else {
+		printf("[%i] test2 FAILED, expected output: [%s]\n", itoa_test2, "2147483647");
+	}
+	if (!strcmp(ft_itoa(itoa_test3), "-2147483648")) {
+		printf("[%i] test3 PASSED\n", itoa_test3);
+	}
+	else {
+		printf("[%i] test3 FAILED, expected output: [%s]\n", itoa_test3, "-2147483648");
+	}
+	if (!strcmp(ft_itoa(itoa_test4), "-2147483648")) {
+		printf("[2147483648] test4 PASSED\n");
+	}
+	else {
+		printf("[2147483648] test4 FAILED, expected output: [%s]\n", "-2147483648");
+	}
+	if (!strcmp(ft_itoa(itoa_test5), "2147483647")) {
+		printf("[-2147483649] test5 PASSED\n");
+	}
+	else {
+		printf("[-2147483649] test5 FAILED, expected output: [%s]\n", "2147483647");
+	}
 	// printf("\n[MEMCMP] ---------------------------------------------------------------------\n");
 	// if (ft_memcmp(bzero_test0, bzero_test1, 256))
 	// 	printf("ft_memcmp() => ft_bzero() test FAILED!\n");
