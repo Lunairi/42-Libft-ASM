@@ -248,10 +248,10 @@ int main(void) {
 	// else
 	// 	printf("ft_strcmp() test6 FAILED!\n");
 
-	// printf("\n[CAT] ------------------------------------------------------------------------\n");
-	// fflush(stdout);
-	// ft_cat(-1);
-	// ft_cat(STDIN_FILENO);
+	printf("\n[CAT] ------------------------------------------------------------------------\n");
+	fflush(stdout);
+	ft_cat(-1);
+	ft_cat(STDIN_FILENO);
 
 	return (0);
 }

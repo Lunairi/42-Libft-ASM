@@ -14,21 +14,21 @@ _ft_puts:
 	push rdi 						; push value onto stack
 	mov rdi, 1						; stdout
 	syscall							; writing string
-	jc helpivefallenandcantgetup	; because syscall can fail
+	jc syscallerror					; because syscall can fail
 
 	push rsi						; clear string
 	lea rsi, [rel newline.nl]		; add newline to rsi to print
 	mov rdx, 1						; printing one byte
 	mov rax, 0x2000004 				; value for write
 	syscall							; writing new line		
-	jc helpivefallenandcantgetup	; because syscall can fail
+	jc syscallerror					; because syscall can fail
 
 	pop rsi							; clearing stack
 	pop rdi							; clearing stack
 	mov rax, 0						; return 0
 	ret
 
-helpivefallenandcantgetup:
+syscallerror:
 	mov rax, -1
 	ret
 

@@ -15,7 +15,7 @@ NAME =	libfts.a
 FILES = bzero strcat \
 		isalpha isdigit isalnum isascii isprint \
 		toupper tolower puts \
-		strlen memset memcpy strdup
+		strlen memset memcpy strdup cat
 
 SRC	= $(addprefix ./sources/, $(patsubst %, %.s, $(FILES)))
 OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
