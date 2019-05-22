@@ -352,86 +352,97 @@ int main(void) {
 	else {
 		printf("[-2147483649] base 10 test5 FAILED, expected output: [%s]\n", itoa_base(itoa_base_test5, 10));
 	}
-	// printf("\n[MEMCMP] ---------------------------------------------------------------------\n");
-	// if (ft_memcmp(bzero_test0, bzero_test1, 256))
-	// 	printf("ft_memcmp() => ft_bzero() test FAILED!\n");
-	// else
-	// 	printf("ft_memcmp() => ft_bzero() test SUCCEEDED!\n");
+	printf("\n[MEMCMP] ---------------------------------------------------------------------\n");
+	if (ft_memcmp(bzero_test0, bzero_test1, 256))
+		printf("ft_memcmp() => ft_bzero() test FAILED!\n");
+	else
+		printf("ft_memcmp() => ft_bzero() test SUCCEEDED!\n");
 
-	// if (ft_memcmp(memset_test0, memset_test1, 256))
-	// 	printf("ft_memcmp() => ft_memset() test FAILED!\n");
-	// else
-	// 	printf("ft_memcmp() => ft_memset() test SUCCEEDED!\n");
+	printf("[%i]\n", ft_memcmp(bzero_test0, bzero_test1, 256));
 
-	// if (ft_memcmp(bzero_test0, memset_test1, 256))
-	// 	printf("ft_memcmp() test SUCCEEDED!\n");
-	// else
-	// 	printf("ft_memcmp() test FAILED!\n");
+	if (ft_memcmp(memset_test0, memset_test1, 256))
+		printf("ft_memcmp() => ft_memset() test FAILED!\n");
+	else
+		printf("ft_memcmp() => ft_memset() test SUCCEEDED!\n");
 
-	// printf("\n[MEMMOVE] --------------------------------------------------------------------\n");
-	// char memmove_test[] = "memmove can be very useful......";
+	printf("[%i]\n", ft_memcmp(memset_test0, memset_test1, 256));
 
-	// void *memmove_res = ft_memmove(memmove_test + 20, memmove_test + 15, 11);
-	// if (strcmp(memmove_test, "memmove can be very very useful."))
-	// 	printf("ft_memmove() test FAILED!\n");
-	// else
-	// 	printf("ft_memmove() test SUCCEEDED!\n");
-	// if (memmove_res != (memmove_test + 20))
-	// 	printf("ft_memmove() returned an invalid result!\n");
+	if (ft_memcmp(bzero_test0, memset_test1, 256))
+		printf("ft_memcmp() test SUCCEEDED!\n");
+	else
+		printf("ft_memcmp() test FAILED!\n");
 
-	// printf("\n[STRCPY] ---------------------------------------------------------------------\n");
-	// char strcpy_test[256] = "I KNOW A SONG THAT GETS ON EVERYBODY'S NERVES";
-	// char strcpy_buffer[256];
+	printf("[%i]\n", ft_memcmp(bzero_test0, memset_test1, 256));
 
-	// memset(strcpy_buffer, 0, 256);
-	// char *strcpy_res = ft_strcpy(strcpy_buffer, strcpy_test);
-	// if (memcmp(strcpy_buffer, strcpy_test, 256))
-	// 	printf("ft_strcpy() test FAILED!\n");
-	// else
-	// 	printf("ft_strcpy() test SUCCEEDED!\n");
-	// if (strcpy_res != strcpy_buffer)
-	// 	printf("ft_strcpy() returned an invalid result!\n");
+	printf("\n[STRCPY] ---------------------------------------------------------------------\n");
+	char strcpy_test[256] = "I KNOW A SONG THAT GETS ON EVERYBODY'S NERVES";
+	char strcpy_buffer[256];
 
-	// printf("\n[STRCMP] ---------------------------------------------------------------------\n");
-	// if (ft_strcmp(memmove_test, "memmove can be very very useful."))
-	// 	printf("ft_strcmp() => ft_memmove() test FAILED!\n");
-	// else
-	// 	printf("ft_strcmp() => ft_memmove() test SUCCEEDED!\n");
+	memset(strcpy_buffer, 0, 256);
+	char *strcpy_res = ft_strcpy(strcpy_buffer, strcpy_test);
+	if (memcmp(strcpy_buffer, strcpy_test, 256))
+		printf("ft_strcpy() test FAILED!\n");
+	else
+		printf("ft_strcpy() test SUCCEEDED!\n");
+	if (strcpy_res != strcpy_buffer)
+		printf("ft_strcpy() returned an invalid result!\n");
 
-	// if (ft_strcmp("WOA", "WOA") == strcmp("WOA", "WOA"))
-	// 	printf("ft_strcmp() test0 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test0 FAILED!\n");
+	printf("\n[STRCMP] ---------------------------------------------------------------------\n");
+	if (ft_strcmp("memmove can be very useful......", "memmove can be very very useful."))
+		printf("ft_strcmp() => ft_memmove() test SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() => ft_memmove() test FAILED!\n");
 
-	// if (ft_strcmp("", "WOA") == strcmp("", "WOA"))
-	// 	printf("ft_strcmp() test1 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test1 FAILED!\n");
+	printf("[%i]\n", ft_strcmp("memmove can be very useful......", "memmove can be very very useful."));
 
-	// if (ft_strcmp("WOA", "") == strcmp("WOA", ""))
-	// 	printf("ft_strcmp() test2 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test2 FAILED!\n");
+	if (ft_strcmp("WOA", "WOA") == strcmp("WOA", "WOA"))
+		printf("ft_strcmp() test0 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test0 FAILED!\n");
 
-	// if (ft_strcmp("", "") == strcmp("", ""))
-	// 	printf("ft_strcmp() test3 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test3 FAILED!\n");
+	printf("[%i] vs [%i]\n", ft_strcmp("WOA", "WOA"), strcmp("WOA", "WOA"));
 
-	// if (ft_strcmp("WATER", "WATTR") == strcmp("WATER", "WATTR"))
-	// 	printf("ft_strcmp() test4 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test4 FAILED!\n");
+	if (ft_strcmp("", "WOA") == strcmp("", "WOA"))
+		printf("ft_strcmp() test1 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test1 FAILED!\n");
 
-	// if (ft_strcmp("SEVENTY", "SIZ") == strcmp("SEVENTY", "SIZ"))
-	// 	printf("ft_strcmp() test5 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test5 FAILED!\n");
+	printf("[%i] vs [%i]\n", ft_strcmp("", "WOA"), strcmp("", "WOA"));
 
-	// if (ft_strcmp("SIZ", "SEVENTY") == strcmp("SIZ", "SEVENTY"))
-	// 	printf("ft_strcmp() test6 SUCCEEDED!\n");
-	// else
-	// 	printf("ft_strcmp() test6 FAILED!\n");
+	if (ft_strcmp("WOA", "") == strcmp("WOA", ""))
+		printf("ft_strcmp() test2 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test2 FAILED!\n");
+
+	printf("[%i] vs [%i]\n", ft_strcmp("WOA", ""), strcmp("WOA", ""));
+
+	if (ft_strcmp("", "") == strcmp("", ""))
+		printf("ft_strcmp() test3 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test3 FAILED!\n");
+
+	printf("[%i] vs [%i]\n", ft_strcmp("", ""), strcmp("", ""));
+
+	if (ft_strcmp("WATER", "WATTR") == strcmp("WATER", "WATTR"))
+		printf("ft_strcmp() test4 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test4 FAILED!\n");
+
+	printf("[%i] vs [%i]\n", ft_strcmp("WATER", "WATTR"), strcmp("WATER", "WATTR"));
+
+	if (ft_strcmp("SEVENTY", "SIZ") == strcmp("SEVENTY", "SIZ"))
+		printf("ft_strcmp() test5 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test5 FAILED!\n");
+
+	printf("[%i] vs [%i]\n", ft_strcmp("SEVENTY", "SIZ"), strcmp("SEVENTY", "SIZ"));
+
+	if (ft_strcmp("SIZ", "SEVENTY") == strcmp("SIZ", "SEVENTY"))
+		printf("ft_strcmp() test6 SUCCEEDED!\n");
+	else
+		printf("ft_strcmp() test6 FAILED!\n");
+
+	printf("[%i] vs [%i]\n", ft_strcmp("SIZ", "SEVENTY"), strcmp("SIZ", "SEVENTY"));
 
 	printf("\n[CAT] ------------------------------------------------------------------------\n");
 	fflush(stdout);

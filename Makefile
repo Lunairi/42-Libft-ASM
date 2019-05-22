@@ -16,7 +16,8 @@ FILES = bzero strcat \
 		isalpha isdigit isalnum isascii isprint \
 		toupper tolower puts \
 		strlen memset memcpy strdup cat \
-		atoi isspace itoa itoa_base
+		atoi isspace itoa itoa_base memalloc \
+		strcmp memcmp strcpy
 
 SRC	= $(addprefix ./sources/, $(patsubst %, %.s, $(FILES)))
 OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
