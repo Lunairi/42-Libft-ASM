@@ -1,6 +1,8 @@
 # 42-Libft-ASM
 Writing some Libft functions in assembly. These are the functions we had to recode in asm:
 
+Test cases courtesy of https://github.com/apuel
+
 # Required
 void				ft_bzero(void *s, size_t n);
 
