@@ -16,7 +16,7 @@ FILES = bzero strcat \
 		isalpha isdigit isalnum isascii isprint \
 		toupper tolower puts \
 		strlen memset memcpy strdup cat \
-		atoi isspace itoa
+		atoi isspace itoa itoa_base
 
 SRC	= $(addprefix ./sources/, $(patsubst %, %.s, $(FILES)))
 OBJ = $(addprefix ./objects/, $(patsubst %, %.o, $(FILES)))
@@ -47,3 +47,5 @@ fclean: clean
 	printf '\033[31m[ ✔ ] %s\n\033[0m' "Fcleaned libftasm"
 
 re: fclean all
+
+.PHONY: clean fclean re all test

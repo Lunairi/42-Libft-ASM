@@ -5,6 +5,48 @@
 #include <stdlib.h>
 #include "include/libft.h"
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+void	itoa(long value, int base, char *ret, int *i)
+{
+	char output[17] = { "0123456789ABCDEF" };
+
+	if (value >= base)
+	{
+		itoa(value / base, base, ret, i);
+		itoa(value % base, base, ret, i);
+	}
+	else if (value < base)
+	{
+		ret[*i] = output[value]; 
+		*i = *i + 1;
+	}
+}
+
+
+char	*itoa_base(int value, int base)
+{
+	char *ret = malloc(sizeof(char) * 4096);
+	long inputvalue = value;
+	int i = 0;
+	if (inputvalue < 0)
+	{
+		inputvalue = inputvalue * -1;
+		if (base == 10)
+		{
+			ret[0] = '-';
+			i++;
+		}
+	}
+	itoa(inputvalue, base, ret, &i);
+	ret[i] = '\0';
+	return ret;
+}
+
+
+
 int main(void) {
 	printf("[BZERO] ----------------------------------------------------------------------\n");
 	char bzero_test0[256];
@@ -252,6 +294,63 @@ int main(void) {
 	}
 	else {
 		printf("[-2147483649] test5 FAILED, expected output: [%s]\n", "2147483647");
+	}
+
+	printf("\n[ITOA_BASE] --------------------------------------------------------------------\n");
+	int itoa_base_test = 12345;
+	int itoa_base_test2 = 2147483647;
+	int itoa_base_test3 = -2147483648;
+	int itoa_base_test4 = 2147483648;
+	int itoa_base_test5 = -2147483649;
+
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test, 2));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test2, 6));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test3, 8));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test4, 12));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test5, 16));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test4, 10));
+	printf("[%s] output\n", ft_itoa_base(itoa_base_test5, 10));
+	if (!strcmp(ft_itoa_base(itoa_base_test, 2), itoa_base(itoa_base_test, 2))) {
+		printf("[%i] base 2 test1 PASSED\n", itoa_base_test);
+	}
+	else {
+		printf("[%i] base 2 test1 FAILED, expected output: [%s]\n", itoa_base_test, itoa_base(itoa_base_test, 2));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test2, 6), itoa_base(itoa_base_test2, 6))) {
+		printf("[%i] base 6 test2 PASSED\n", itoa_base_test2);
+	}
+	else {
+		printf("[%i] base 6 test2 FAILED, expected output: [%s]\n", itoa_base_test2, itoa_base(itoa_base_test2, 6));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test3, 8), itoa_base(itoa_base_test3, 8))) {
+		printf("[%i] base 8 test3 PASSED\n", itoa_base_test3);
+	}
+	else {
+		printf("[%i] base 8 test3 FAILED, expected output: [%s]\n", itoa_base_test3, itoa_base(itoa_base_test3, 8));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test4, 12), itoa_base(itoa_base_test4, 12))) {
+		printf("[2147483648] base 12 test4 PASSED\n");
+	}
+	else {
+		printf("[2147483648] base 12 test4 FAILED, expected output: [%s]\n", itoa_base(itoa_base_test4, 12));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test5, 16), itoa_base(itoa_base_test5, 16))) {
+		printf("[-2147483649] base 16 test5 PASSED\n");
+	}
+	else {
+		printf("[-2147483649] base 16 test5 FAILED, expected output: [%s]\n", itoa_base(itoa_base_test5, 16));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test4, 10), itoa_base(itoa_base_test4, 10))) {
+		printf("[2147483648] base 10 test4 PASSED\n");
+	}
+	else {
+		printf("[2147483648] base 10 test4 FAILED, expected output: [%s]\n", itoa_base(itoa_base_test4, 10));
+	}
+	if (!strcmp(ft_itoa_base(itoa_base_test5, 10), itoa_base(itoa_base_test5, 10))) {
+		printf("[-2147483649] base 10 test5 PASSED\n");
+	}
+	else {
+		printf("[-2147483649] base 10 test5 FAILED, expected output: [%s]\n", itoa_base(itoa_base_test5, 10));
 	}
 	// printf("\n[MEMCMP] ---------------------------------------------------------------------\n");
 	// if (ft_memcmp(bzero_test0, bzero_test1, 256))
