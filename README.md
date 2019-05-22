@@ -44,6 +44,8 @@ int					ft_atoi(const char *str);
 
 int					ft_isspace(int c);
 
+void				*ft_memalloc(size_t size);
+
 char				*ft_itoa(int n);
 
 char				*ft_itoa_base(int value, int base);

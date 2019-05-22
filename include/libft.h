@@ -37,5 +37,6 @@ char				*ft_itoa_base(int value, int base);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strcpy(char *dest, const char *src);
+void				*ft_memalloc(size_t size);
 
 #endif
